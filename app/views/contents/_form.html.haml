@@ -1,0 +1,15 @@
+%li
+  %p 画像（必須）
+  = f.label :image,　class: "form__image" do
+    = f.file_field :image, class: "form__image__file"
+%li
+  %p 商品名
+  = f.text_field :product, class: "form__product", placeholder: "（必須）商品名を入力してください"
+%li
+  %p 商品ページ
+  = f.text_field :link, class: "form__link", placeholder: "（任意）商品のURLを添付してください"
+%li
+  %p お気に入りポイント
+  = f.text_area :body, class: "form__text", placeholder: "（必須）一押しのポイントを入力してください"
+%li
+  = f.submit "投稿する", class: "form__btn"

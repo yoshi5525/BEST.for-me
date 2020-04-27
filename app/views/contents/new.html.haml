@@ -1,0 +1,7 @@
+.wrapper
+  .main-form
+    = form_with model: @content, local: true do |f|
+      %ul.form
+        %li.form__title
+          新規投稿
+        = render partial: 'form', locals: { f: f }

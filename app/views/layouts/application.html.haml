@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BEST.For-Me
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .wrapper
+      .header
+        .title
+          = link_to 'BEST-for-me', root_path
+        .info-box
+          .info-box__search
+            = link_to "#" do
+              = icon('fa', 'search', class: "info-box__search")
+          - if user_signed_in?
+            .info-box__left-btn
+              -# = link_to "ログアウト", destroy_user_session_path
+              = link_to "#{current_user.name}さんのマイページ", users_path
+            .info-box__right-btn
+              = link_to '投稿する', new_content_path
+          - else
+            .info-box__left-btn
+              = link_to 'ログイン', new_user_session_path
+            .info-box__right-btn
+              = link_to '新規登録', new_user_registration_path
+      = yield
+      .footer
+        %small
+          BEST.for-me 2020
