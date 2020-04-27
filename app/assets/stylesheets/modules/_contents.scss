@@ -1,0 +1,204 @@
+.wrapper {
+  box-sizing: border-box;
+  .header {
+    background-color: black;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    box-sizing: border-box;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    .title {
+      font-size: 45px;
+      font-weight: bolder;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+    }
+    .info-box {
+      color: white;
+      display: flex;
+      font-size: 20px;
+      text-align: center;
+      &__search {
+        margin-right: 40px;
+        cursor: pointer;
+      }
+      &__left-btn {
+        margin-right: 40px;
+        cursor: pointer;
+      }
+      &__right-btn {
+        cursor: pointer;
+      }
+    }
+  }
+  .main {
+    background-color: white;
+    width: 100%;
+    overflow: scroll;
+    padding-top: 122px;
+    .content {
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      position: relative;
+      &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        filter: grayscale(100%);
+      }
+      &__image:hover{
+        filter: grayscale(0);
+        transition-duration: 0.5s;
+      }
+      .product-name {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
+        font-weight: bolder;
+        color: red;
+        z-index: 2;
+      }
+    }
+  }
+  .main-form {
+    background-color: white;
+    width: 100%;
+    height: calc(100vh - 170px);
+    padding-top: 120px;
+    .form {
+      width: 100%;
+      text-align: center;
+      padding-top: 50px;
+      &__title {
+        font-size: 34px;
+        padding-bottom: 30px;
+        letter-spacing: 0.4em
+      }
+      &__image {
+        font-size: 20px;
+        &__file {
+          cursor: pointer;
+          padding-top: 10px;
+        }
+      }
+      &__product {
+        width: 70%;
+        height: 50px;
+      }
+      &__link {
+        width: 70%;
+        height: 50px;
+      }
+      &__text {
+        width: 70%;
+        height: 160px;
+        margin-bottom: 30px;
+      }
+      &__btn {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        background-color: #000;
+        color: #fff;
+        border-style: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .main-show {
+    background-color: white;
+    width: 100%;
+    height: calc(100vh - 170px);
+    padding-top: 120px;
+    text-align: center;
+    overflow: scroll;
+    .chage-content {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      .retrun {
+        width: 100px;
+        background-color: rgb(167, 164, 164);
+        padding: 10px;
+        border-radius: 5%;
+        letter-spacing: 0.1em;
+        text-shadow:0.5px 0.5px 0 gray,-0.5px 0.5px 0 gray,0.5px -0.5px 0 gray,-0.5px -0.5px 0 gray;
+      }
+      .edit {
+        width: 100px;
+        background-color: rgb(167, 164, 164);
+        padding: 10px;
+        border-radius: 5%;
+        letter-spacing: 0.1em;
+        margin: 0 40px;
+        text-shadow:0.5px 0.5px 0 gray,-0.5px 0.5px 0 gray,0.5px -0.5px 0 gray,-0.5px -0.5px 0 gray;
+      }
+      .delete {
+        width: 100px;
+        background-color: rgb(167, 164, 164);
+        padding: 10px;
+        border-radius: 5%;
+        letter-spacing: 0.1em;
+        padding: 10px;
+        text-shadow:0.5px 0.5px 0 gray,-0.5px 0.5px 0 gray,0.5px -0.5px 0 gray,-0.5px -0.5px 0 gray;
+      }
+    }
+    &__info-name {
+      height: 30px;
+      font-size: 24px;
+      font-weight: bolder;
+      padding-top: 30px;
+    }
+    &__info-product {
+      height: 30px;
+      font-size: 22px;
+      padding-top: 20px;
+    }
+    &__info-date {
+      height: 15px;
+      font-size: 14px;
+      padding-top: 5px;
+      color: gray;
+    }
+    &__image {
+      padding-top: 10px;
+      display: block;
+      .image {
+        width: 400px;
+        height: 400px;
+      }
+    }
+    &__text {
+      font-size: 18px;
+    }
+    &__link {
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+  }
+  .footer {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+p {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+}

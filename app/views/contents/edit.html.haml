@@ -1,0 +1,7 @@
+.wrapper
+  .main-form
+    = form_with model: @content, local: true do |f|
+      %ul.form
+        %li.form__title
+          投稿を編集する
+        = render partial: 'form', locals: { f: f }
