@@ -1,13 +1,17 @@
 .main-show
   .chage-content
-    .retrun
-      = link_to "一覧に戻る", root_path
+    -# .retrun
+    -#   = link_to "一覧に戻る", root_path
     - if user_signed_in? && current_user.id == @content.user_id
+      .retrun
+        = link_to "マイページ", user_path(current_user.id)
       .edit
         = link_to "編集する", edit_content_path(@content.id)
       .delete
         = link_to "削除する", content_path(@content.id), method: :delete
-
+    - else
+      .retrun
+        = link_to "一覧に戻る", root_path
   .main-show__info-name
     = "#{@content.user.name}さんの投稿"
   .main-show__info-product

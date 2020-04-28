@@ -1,9 +1,9 @@
 class ContentsController < ApplicationController
 before_action :set_content, only: [:edit, :update, :destroy, :show]
-before_action :move_to_index, expect: [:index, :show]
+before_action :move_to_index, except: [:index, :show]
 
   def index
-    @contents = Content.includes(:user).order(created_at: :desc)
+    @contents = Content.includes(:user).order(created_at: :desc).page(params[:page]).per(50)
   end
 
   def new

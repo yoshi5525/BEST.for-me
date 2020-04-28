@@ -18,15 +18,16 @@
               = icon('fa', 'search', class: "info-box__search")
           - if user_signed_in?
             .info-box__left-btn
-              -# = link_to "ログアウト", destroy_user_session_path
-              = link_to "#{current_user.name}さんのマイページ", users_path
+              = link_to "｢#{current_user.name}さん｣ログイン中", user_path(current_user.id)
+            .info-box__center-btn
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
             .info-box__right-btn
               = link_to '投稿する', new_content_path
           - else
             .info-box__left-btn
               = link_to 'ログイン', new_user_session_path
             .info-box__right-btn
-              = link_to '新規登録', new_user_registration_path
+              = link_to 'アカウントを作成', new_user_registration_path
       = yield
       .footer
         %small

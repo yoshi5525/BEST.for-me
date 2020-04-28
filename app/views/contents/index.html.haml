@@ -1,8 +1,5 @@
 .wrapper
   .main
     - @contents.each do |content|
-      .content
-        = link_to content_path(content.id) do
-          = image_tag content.image.url, class: "content__image"
-        .product-name
-          = content.product
+      = render partial: 'content',locals: { content: content}
+  = paginate(@contents)
