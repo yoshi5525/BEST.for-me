@@ -28,6 +28,9 @@
               = link_to 'ログイン', new_user_session_path
             .info-box__right-btn
               = link_to 'アカウントを作成', new_user_registration_path
+      .notifications
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: key)
       = yield
       .footer
         %small

@@ -11,5 +11,9 @@
 %li
   %p お気に入りポイント
   = f.text_area :body, class: "form__text", placeholder: "（必須）一押しのポイントを入力してください"
-%li
-  = f.submit "投稿する", class: "form__btn"
+- if @content.image.present? && @content.product.present? && @content.body.present?
+  %li
+    = f.submit "更新する", class: "form__btn", data: {confirm: "更新してもよろしいですか？"}
+- else
+  %li
+    = f.submit "投稿する", class: "form__btn", data: {confirm: "投稿してもよろしいですか？"}

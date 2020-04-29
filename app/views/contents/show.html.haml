@@ -1,14 +1,12 @@
 .main-show
   .chage-content
-    -# .retrun
-    -#   = link_to "一覧に戻る", root_path
     - if user_signed_in? && current_user.id == @content.user_id
       .retrun
         = link_to "マイページ", user_path(current_user.id)
       .edit
         = link_to "編集する", edit_content_path(@content.id)
       .delete
-        = link_to "削除する", content_path(@content.id), method: :delete
+        = link_to "削除する", content_path(@content.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}
     - else
       .retrun
         = link_to "一覧に戻る", root_path
@@ -22,7 +20,31 @@
     = image_tag @content.image.url, class: "image"
   .main-show__text
     %p おすすめ情報
-    = @content.body
-  .main-show__link
-    %p 製品ページ
-    = @content.link
+    .main-show__text--small-font
+      = @content.body
+  - if @content.link.present?
+    .main-show__link
+      %p 製品ページ
+      = link_to "#{@content.link}", @content.link, class: "external-link"
+  - else
+    %p 製品ページはありません
+
+  .comment-form
+    - if current_user
+      = form_with(model: [@content, @comment], local: true) do |form|
+        = form.text_area :text, class: "comment-text", placeholder: "コメントを入力してください"
+        = form.submit "コメントを投稿する", class: "comment-btn", data: {confirm: "コメントを投稿してもよろしいですか？"}
+    - else
+      .comment-text
+        ※※※ コメントの投稿するには新規登録/ログインが必要です ※※※
+  .comments-box
+    %p ＜コメント一覧＞
+    - if @comments
+      - @comments.each do |comment|
+        .comments-box__info
+          = link_to "#{comment.user.name}さん", user_path(comment.user_id)
+        .comments-box__text
+          = comment.text
+    - else
+      .comments-box__info
+        コメントはありません
