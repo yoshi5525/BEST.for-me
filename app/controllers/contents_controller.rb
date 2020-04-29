@@ -11,11 +11,12 @@ before_action :move_to_index, except: [:index, :show]
   end
 
   def create
-    @content = Content.new(content_params)
+    @content = Content.create(content_params)
     if @content.save
-      redirect_to @content, notice: "投稿しました"
+      redirect_to @content, notice: '投稿しました'
     else
-      render :new, alert: "投稿できませんでした"
+      flash.now[:alert] = '投稿できませんでした'
+      render :new
     end
   end
 
@@ -24,9 +25,10 @@ before_action :move_to_index, except: [:index, :show]
 
   def update
     if @content.update(content_params)
-      redirect_to @content, notice: "更新しました"
+      redirect_to @content, notice: '更新しました'
     else
-      render :edit, alert: "更新できませんでした"
+      flash.now[:alert] = '更新できませんでした'
+      render :edit
     end
   end
 
@@ -34,11 +36,14 @@ before_action :move_to_index, except: [:index, :show]
     if  @content.destroy
       redirect_to root_path, notice: "削除しました"
     else
-      redirect_to root_path, alert: "削除できませんでした"
+      flash.now[:alert] = '削除できませんでした'
+      render :show
     end
   end
 
   def show
+    @comment = Comment.new
+    @comments = @content.comments.includes(:user)
   end
 
   private

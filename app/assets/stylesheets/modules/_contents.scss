@@ -9,8 +9,6 @@
     padding: 0 50px;
     box-sizing: border-box;
     align-items: center;
-    // position: fixed;
-    // z-index: 1;
     .title {
       font-size: 45px;
       font-weight: bolder;
@@ -18,12 +16,11 @@
       letter-spacing: 0.1em;
     }
     .info-box {
-      color: white;
       display: flex;
       font-size: 20px;
       text-align: center;
       &__search {
-        margin-right: 40px;
+        margin-right: 20px;
         cursor: pointer;
       }
       &__left-btn {
@@ -39,12 +36,23 @@
       }
     }
   }
+
+  .notifications {
+    color: white;
+    text-align: center;  
+    .notice {
+      background-color: rgb(0, 195, 255);
+    }
+    .alert {
+      background-color: red;
+    }
+  }
+
   .main {
     background-color: white;
     width: 100%;
     overflow: scroll;
     padding: 3px;
-    // padding-top: 122px;
     .content {
       width: 300px;
       height: 300px;
@@ -68,10 +76,10 @@
         text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
         font-weight: bolder;
         color: red;
-        // z-index: 2;
       }
     }
   }
+
   .main-signed-in {
     background-color: white;
     width: 100%;
@@ -98,11 +106,11 @@
       }
     }
   }
+
   .main-form {
     background-color: white;
     width: 100%;
     height: calc(100vh - 170px);
-    // padding-top: 120px;
     .form {
       width: 100%;
       text-align: center;
@@ -142,11 +150,11 @@
       }
     }
   }
+
   .main-show {
     background-color: white;
-    width: 100%;
-    height: calc(100vh - 170px);
-    // padding-top: 120px;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
     overflow: scroll;
     .chage-content {
@@ -206,17 +214,67 @@
       }
     }
     &__text {
-      font-size: 18px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      &--small-font {
+        white-space: pre-wrap;
+      }
     }
     &__link {
       font-size: 14px;
-      padding-bottom: 20px;
+      padding-bottom: 50px;
+      .external-link {
+        background-color: #b74949;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5%;
+        letter-spacing: 0.1em;
+        display: inline-block;
+      }
+    }
+    .comment-form {
+      margin-top: 40px;
+      .comment-text {
+        width: 80%;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+      }
+      .comment-btn {
+        width: 200px;
+        color: white;
+        background-color:#2b46ca;
+        padding: 10px;
+        border-radius: 5%;
+        letter-spacing: 0.1em;
+        text-shadow:0.5px 0.5px 0 gray,-0.5px 0.5px 0 gray,0.5px -0.5px 0 gray,-0.5px -0.5px 0 gray;
+        margin: 15px 0 40px;
+        cursor: pointer;
+      }
+    }
+    .comments-box {
+      background-color: rgba(197, 197, 186, 0.514);
+      width: 80%;
+      margin: 0 auto 40px;
+      &__info {
+        white-space: pre-wrap;
+        text-shadow:0.5px 0.5px 0 black,-0.5px 0.5px 0 black,0.5px -0.5px 0 black,-0.5px -0.5px 0 black;
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      &__text {
+        font-size: 14px;
+        padding-bottom: 15px;
+      }
     }
   }
+
   .pagination {
     background-color: black;
     color: white;
   }
+
   .footer {
     width: 100%;
     height: 50px;
@@ -227,13 +285,13 @@
   }
 }
 
+
 a {
   color: white;
   text-decoration: none;
 }
-
 p {
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 20px;
   font-weight: bolder;
 }
