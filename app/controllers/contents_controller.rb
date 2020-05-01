@@ -11,7 +11,7 @@ before_action :move_to_index, except: [:index, :show]
   end
 
   def create
-    @content = Content.create(content_params)
+    @content = Content.new(content_params)
     if @content.save
       redirect_to @content, notice: '投稿しました'
     else
@@ -44,11 +44,12 @@ before_action :move_to_index, except: [:index, :show]
   def show
     @comment = Comment.new
     @comments = @content.comments.includes(:user)
+    @tags = @content.tags.includes(content_tags: :tag)
   end
 
   private
   def content_params
-    params.require(:content).permit(:image, :product, :link, :body).merge(user_id: current_user.id)
+    params.require(:content).permit(:image, :product, :link, :body, tag_ids:[]).merge(user_id: current_user.id)
   end
 
   def set_content

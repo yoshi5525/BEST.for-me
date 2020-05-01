@@ -1,7 +1,11 @@
 %li
   %p 画像（必須）
-  = f.label :image,　class: "form__image" do
+  = f.label :image, class: "form__image" do
     = f.file_field :image, class: "form__image__file"
+%li
+  %p タグ（必須）
+  = f.collection_check_boxes :tag_ids, Tag.all, :id, :text do |tag|
+    = tag.label { tag.check_box + tag.text}
 %li
   %p 商品名
   = f.text_field :product, class: "form__product", placeholder: "（必須）商品名を入力してください"
