@@ -1,19 +1,13 @@
 .main-show
-  .chage-content
-    - if user_signed_in? && current_user.id == @content.user_id
-      .retrun
-        = link_to "マイページ", user_path(current_user.id)
-      .edit
-        = link_to "編集する", edit_content_path(@content.id)
-      .delete
-        = link_to "削除する", content_path(@content.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}
-    - else
-      .retrun
-        = link_to "一覧に戻る", root_path
   .main-show__info-name
     = "#{@content.user.name}さんの投稿"
   .main-show__info-product
     = "「#{@content.product}」の詳細画面"
+  .main-show__info-tag
+    %p 製品ジャンル
+    - @tags.each do |tag|
+      .tag-data
+        = link_to "#{tag.text}", "#"
   .main-show__info-date
     = "作成日時：#{@content.created_at.strftime("%Y-%m-%d %H:%M")}"
   .main-show__image
@@ -28,23 +22,35 @@
       = link_to "#{@content.link}", @content.link, class: "external-link"
   - else
     %p 製品ページはありません
-
-  .comment-form
-    - if current_user
-      = form_with(model: [@content, @comment], local: true) do |form|
-        = form.text_area :text, class: "comment-text", placeholder: "コメントを入力してください"
-        = form.submit "コメントを投稿する", class: "comment-btn", data: {confirm: "コメントを投稿してもよろしいですか？"}
+  .chage-content
+    - if user_signed_in? && current_user.id == @content.user_id
+      .retrun
+        = link_to "マイページ", user_path(current_user.id)
+      .edit
+        = link_to "編集する", edit_content_path(@content.id)
+      .delete
+        = link_to "削除する", content_path(@content.id), method: :delete, data: {confirm: "削除してもよろしいですか？"}
     - else
-      .comment-text
-        ※※※ コメントの投稿するには新規登録/ログインが必要です ※※※
-  .comments-box
-    %p ＜コメント一覧＞
-    - if @comments
-      - @comments.each do |comment|
+      .retrun
+        = link_to "一覧に戻る", root_path
+  -if current_user != @content.user
+    .comment-form
+      - if user_signed_in?
+        = form_with(model: [@content, @comment], local: true) do |form|
+          = form.text_area :text, class: "comment-text", placeholder: "コメントを入力してください"
+          = form.submit "コメントを投稿する", class: "comment-btn", data: {confirm: "コメントを投稿してもよろしいですか？"}
+      - else
+        .comment-text
+          ※※※ コメントの投稿するには新規登録/ログインが必要です ※※※
+  - else
+    .comments-box
+      %p ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          .comments-box__info
+            = link_to "#{comment.user.name}さん", user_path(comment.user_id)
+          .comments-box__text
+            = comment.text
+      - else
         .comments-box__info
-          = link_to "#{comment.user.name}さん", user_path(comment.user_id)
-        .comments-box__text
-          = comment.text
-    - else
-      .comments-box__info
-        コメントはありません
+          コメントはありません
