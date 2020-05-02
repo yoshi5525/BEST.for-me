@@ -10,4 +10,10 @@ class Content < ApplicationRecord
     validates :image
   end
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    return Content.all unless search
+    Content.where('product LIKE(?)', "%#{search}%")
+  end
+  
 end
