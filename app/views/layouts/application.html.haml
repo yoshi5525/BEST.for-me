@@ -14,7 +14,7 @@
           = link_to 'BEST-for-me', root_path
         .info-box
           .info-box__search
-            = link_to "#" do
+            = link_to contents_searches_path do
               = icon('fa', 'search', class: "info-box__search")
           - if user_signed_in?
             .info-box__left-btn

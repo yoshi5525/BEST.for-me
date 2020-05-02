@@ -48,7 +48,73 @@
     }
   }
 
+  .search-form {
+    text-align: center;
+    margin: 50px 0;
+    .search-input {
+      width: 50%;
+      height: 50px;
+      border-radius: 10px;
+      background-color: rgb(187, 236, 240);
+    }
+    .search-btn {
+      padding: 15px 40px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      background-color: rgb(24, 192, 207);
+      color: #fff;
+      text-shadow:0.5px 0.5px 0 black,-0.5px 0.5px 0 black,0.5px -0.5px 0 black,-0.5px -0.5px 0 black;
+      border-style: none;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
+
   .main {
+    background-color: white;
+    width: 100%;
+    overflow: scroll;
+    padding: 3px;
+    .search-result {
+      background-color: red;
+      width: 350px;
+      height: 50px;
+      margin: 0 auto 40px;
+      line-height: 50px;
+      text-align: center;
+      letter-spacing: 0.1em;
+      color: white;
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .content {
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      position: relative;
+      &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        filter: grayscale(100%);
+      }
+      &__image:hover{
+        filter: grayscale(0);
+        transition-duration: 0.5s;
+      }
+      .product-name {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
+        font-weight: bolder;
+        color: red;
+      }
+    }
+  }
+
+  .users-show {
     background-color: white;
     width: 100%;
     overflow: scroll;
@@ -80,7 +146,7 @@
     }
   }
 
-  .main-signed-in {
+  .tags-show {
     background-color: white;
     width: 100%;
     overflow: scroll;
@@ -95,6 +161,11 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
+        filter: grayscale(100%);
+      }
+      &__image:hover{
+        filter: grayscale(0);
+        transition-duration: 0.5s;
       }
       .product-name {
         position: absolute;
@@ -161,12 +232,18 @@
       height: 30px;
       font-size: 24px;
       font-weight: bolder;
-      padding-top: 30px;
+      padding-top: 40px;
+      .user-name {
+        padding: 15px;
+        border-radius: 5%;
+        background-color: rgb(211, 140, 9);
+        text-shadow:0.5px 0.5px 0 black,-0.5px 0.5px 0 black,0.5px -0.5px 0 black,-0.5px -0.5px 0 black;
+      }
     }
     &__info-product {
       height: 30px;
       font-size: 22px;
-      padding-top: 20px;
+      padding-top: 40px;
     }
     &__info-tag {
       .tag-data {

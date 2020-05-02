@@ -1,13 +1,13 @@
 .main-show
   .main-show__info-name
-    = "#{@content.user.name}さんの投稿"
+    = link_to "#{@content.user.name}さんの投稿",user_path(@content.user.id),class: "user-name"
   .main-show__info-product
-    = "「#{@content.product}」の詳細画面"
+    = "「#{@content.product}」"
   .main-show__info-tag
     %p 製品ジャンル
     - @tags.each do |tag|
       .tag-data
-        = link_to "#{tag.text}", "#"
+        = link_to "#{tag.text}", tag_path(tag.id)
   .main-show__info-date
     = "作成日時：#{@content.created_at.strftime("%Y-%m-%d %H:%M")}"
   .main-show__image
@@ -42,15 +42,14 @@
       - else
         .comment-text
           ※※※ コメントの投稿するには新規登録/ログインが必要です ※※※
-  - else
-    .comments-box
-      %p ＜コメント一覧＞
-      - if @comments
-        - @comments.each do |comment|
-          .comments-box__info
-            = link_to "#{comment.user.name}さん", user_path(comment.user_id)
-          .comments-box__text
-            = comment.text
-      - else
+  .comments-box
+    %p ＜コメント一覧＞
+    - if @comments
+      - @comments.each do |comment|
         .comments-box__info
-          コメントはありません
+          = link_to "#{comment.user.name}さん", user_path(comment.user_id)
+        .comments-box__text
+          = comment.text
+    - else
+      .comments-box__info
+        コメントはありません

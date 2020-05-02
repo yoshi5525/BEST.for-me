@@ -1,5 +1,5 @@
 .wrapper
-  .users-show
+  .tags-show
     - @contents.each do |content|
       = render partial: 'contents/content',locals: { content: content}
   = paginate(@contents)

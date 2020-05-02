@@ -1,0 +1,12 @@
+.wrapper
+  = form_with(url: contents_searches_path, local: true, method: :get, class: "search-form") do |form|
+    = form.text_field :keyword, placeholder: "検索したい製品名を入力してください", class: "search-input"
+    = form.submit "検索", class: "search-btn"
+  .main
+    - if @contents.present?
+      - @contents.each do |content|
+        = render partial: 'contents/content',locals: { content: content}
+    - else
+      .search-result
+        該当する投稿はありません
+  = paginate(@contents)
