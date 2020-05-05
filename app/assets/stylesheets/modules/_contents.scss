@@ -38,33 +38,40 @@
   }
 
   .notifications {
-    color: white;
+    width: 100%;
     text-align: center;  
+    background-color: black;
+    font-weight: bolder;
+    font-size: 20px;
     .notice {
-      background-color: rgb(0, 195, 255);
+      color: rgb(51, 227, 240);
+      text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
     }
     .alert {
-      background-color: red;
+      color: rgb(250, 70, 70);
+      text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
     }
   }
 
   .search-form {
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    line-height: 80px;
+    letter-spacing: 0.4em;
     text-align: center;
-    margin: 50px 0;
+    background-color: black;
+    color: white;
     .search-input {
       width: 50%;
-      height: 50px;
+      height: 30px;
       border-radius: 10px;
-      background-color: rgb(187, 236, 240);
     }
     .search-btn {
-      padding: 15px 40px;
-      font-size: 1.2em;
+      padding: 2px 30px;
       border-radius: 10px;
-      background-color: rgb(24, 192, 207);
-      color: #fff;
-      text-shadow:0.5px 0.5px 0 black,-0.5px 0.5px 0 black,0.5px -0.5px 0 black,-0.5px -0.5px 0 black;
-      border-style: none;
+      background-color: white;
+      color:black;
       cursor: pointer;
       margin-left: 10px;
     }
@@ -74,16 +81,26 @@
     background-color: white;
     width: 100%;
     overflow: scroll;
-    padding: 3px;
-    .search-result {
-      background-color: red;
-      width: 350px;
+    .display-info {
+      width: 100%;
       height: 50px;
-      margin: 0 auto 40px;
+      font-size: 18px;
+      line-height: 50px;
+      text-decoration: underline;
+      letter-spacing: 0.4em;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    .search-result {
+      background-color: black;
+      width: 100%;
+      height: 50px;
       line-height: 50px;
       text-align: center;
-      letter-spacing: 0.1em;
-      color: white;
+      letter-spacing: 0.2em;
+      color: red;
+      text-shadow:1px 1px 0 white,-1px 1px 0 white,1px -1px 0 white,-1px -1px 0 white;
       font-size: 20px;
       font-weight: bolder;
     }
@@ -118,7 +135,17 @@
     background-color: white;
     width: 100%;
     overflow: scroll;
-    padding: 3px;
+    .display-info {
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      line-height: 50px;
+      text-decoration: underline;
+      letter-spacing: 0.4em;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
     .content {
       width: 300px;
       height: 300px;
@@ -150,7 +177,17 @@
     background-color: white;
     width: 100%;
     overflow: scroll;
-    padding: 3px;
+    .display-info {
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      line-height: 50px;
+      text-decoration: underline;
+      letter-spacing: 0.4em;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
     .content {
       width: 300px;
       height: 300px;
@@ -185,10 +222,9 @@
     .form {
       width: 100%;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 30px;
       &__title {
         font-size: 34px;
-        padding-bottom: 30px;
         letter-spacing: 0.4em
       }
       &__image {
@@ -197,6 +233,11 @@
           cursor: pointer;
           padding-top: 10px;
         }
+      }
+      &__tags {
+        width: 1140px;
+        margin: 0 auto;
+        text-align: left;
       }
       &__product {
         width: 70%;
@@ -208,8 +249,8 @@
       }
       &__text {
         width: 70%;
-        height: 160px;
-        margin-bottom: 30px;
+        height: 140px;
+        margin-bottom: 10px;
       }
       &__btn {
         padding: 15px 40px;
@@ -247,11 +288,10 @@
     }
     &__info-tag {
       .tag-data {
-        width: 60px;
         display: inline-block;
         background-color: rgb(5, 112, 5);
         border: 1px solid;
-        padding: 5px;
+        padding: 5px 10px;
         border-radius: 5%;
         letter-spacing: 0.1em;
         margin: 5px 10px 15px;
@@ -279,15 +319,15 @@
       }
     }
     &__link {
-      font-size: 14px;
       .external-link {
+        width: auto;
         background-color: #b74949;
-        font-size: 16px;
+        font-size: 12px;
         margin-top: 20px;
         padding: 10px;
         border-radius: 5%;
-        letter-spacing: 0.1em;
         display: inline-block;
+        text-align: start;
       }
     }
     .chage-content {
@@ -321,7 +361,7 @@
       }
     }
     .comment-form {
-      margin-top: 40px;
+      margin-top: 80px;
       .comment-text {
         width: 80%;
         height: 100px;
@@ -336,14 +376,14 @@
         border-radius: 5%;
         letter-spacing: 0.1em;
         text-shadow:0.5px 0.5px 0 gray,-0.5px 0.5px 0 gray,0.5px -0.5px 0 gray,-0.5px -0.5px 0 gray;
-        margin: 15px 0 40px;
+        margin: 15px 0 0;
         cursor: pointer;
       }
     }
     .comments-box {
       background-color: rgba(197, 197, 186, 0.514);
       width: 80%;
-      margin: 50px auto 40px;
+      margin: 40px auto;
       &__info {
         white-space: pre-wrap;
         text-shadow:0.5px 0.5px 0 black,-0.5px 0.5px 0 black,0.5px -0.5px 0 black,-0.5px -0.5px 0 black;
@@ -381,4 +421,9 @@ p {
   padding-top: 20px;
   font-size: 20px;
   font-weight: bolder;
+}
+label {
+  width: 280px;
+  cursor: pointer;
+  display: inline-block;
 }

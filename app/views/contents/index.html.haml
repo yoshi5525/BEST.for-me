@@ -1,5 +1,7 @@
 .wrapper
   .main
+    .display-info
+      = "投稿一覧を表示中"
     - @contents.each do |content|
       = render partial: 'content',locals: { content: content}
   = paginate(@contents)
