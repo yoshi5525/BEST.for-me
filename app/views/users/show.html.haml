@@ -1,5 +1,11 @@
 .wrapper
   .users-show
+    - if @contents.present?
+      .display-info
+        = "投稿者：#{@user.name} さんの投稿一覧"
+    - else
+      .display-info
+        = "#{@user.name} さんの投稿はありません"
     - @contents.each do |content|
       = render partial: 'contents/content',locals: { content: content}
   = paginate(@contents)

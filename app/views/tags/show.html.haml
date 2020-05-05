@@ -1,5 +1,11 @@
 .wrapper
   .tags-show
+    - if @contents.present?
+      .display-info
+        = "タグ：#{@tag.text} の投稿一覧"
+    - else
+      .display-info
+        = "「#{@tag.text}」タグの投稿はありません"
     - @contents.each do |content|
       = render partial: 'contents/content',locals: { content: content}
   = paginate(@contents)
