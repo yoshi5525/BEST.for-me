@@ -1,6 +1,7 @@
 .wrapper
   .main-form
     = form_with model: @content, local: true do |f|
+      = render 'layouts/error_messages', model: f.object
       %ul.form
         %li.form__title
           新規投稿

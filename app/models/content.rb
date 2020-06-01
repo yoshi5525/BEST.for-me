@@ -4,11 +4,10 @@ class Content < ApplicationRecord
   has_many :content_tags, dependent: :destroy
   has_many :tags, through: :content_tags
 
-  with_options presence: true do
-    validates :product
-    validates :body
-    validates :image
-  end
+  validates :product, presence: true
+  validates :body, presence: true
+  validates :image, presence: true
+
   mount_uploader :image, ImageUploader
 
   def self.search(search)
