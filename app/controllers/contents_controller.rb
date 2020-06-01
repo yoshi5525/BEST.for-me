@@ -3,7 +3,7 @@ before_action :set_content, only: [:edit, :update, :destroy, :show]
 before_action :move_to_index, except: [:index, :show]
 
   def index
-    @contents = Content.includes(user: :comments).order(created_at: :desc).page(params[:page]).per(50)
+    @contents = Content.includes(user: :comments).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new
