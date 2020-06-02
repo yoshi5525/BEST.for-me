@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -72,3 +73,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
+
+group :production do
+  gem 'pg'
+end

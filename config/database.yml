@@ -52,3 +52,6 @@ production:
   database: BEST_for-me_production
   username: BEST_for-me
   password: <%= ENV['BEST_FOR-ME_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
