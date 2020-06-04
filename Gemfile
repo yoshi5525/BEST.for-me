@@ -73,6 +73,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'fog-aws'
 
 group :production do
   gem 'pg'
